@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Source",
+    "\\Source\\Infrastructure",
+    "\\Source\\Infrastructure\\PrismMahAppsSample.Infrastructure",
+    "\\Source\\Infrastructure\\PrismMahAppsSample.Styling",
+    "\\Source\\Modules",
+    "\\Source\\Modules\\PrismMahAppsSample.ModuleA",
+    "\\Source\\Modules\\PrismMahAppsSample.ModuleB",
+    "\\Source\\Shell",
+    "\\Source\\Shell\\PrismMahAppsSample.Shell"
+  ],
+  "SelectedNode": "\\PrismMahAppsSample.sln",
+  "PreviewInSolutionExplorer": false
+}

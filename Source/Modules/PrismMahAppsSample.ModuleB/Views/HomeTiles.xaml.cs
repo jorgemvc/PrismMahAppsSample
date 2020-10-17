@@ -13,16 +13,13 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace PrismMahAppsSample.ModuleB.Views
-{
-    /// <summary>
-    /// Interaktionslogik für HomeTiles.xaml
-    /// </summary>
-    public partial class HomeTiles : UserControl
-    {
-        public HomeTiles()
-        {
-            InitializeComponent();
-        }
+namespace PrismMahAppsSample.ModuleB.Views {
+  /// <summary>
+  /// Interaction logic for HomeTiles.xaml
+  /// </summary>
+  public partial class HomeTiles : UserControl {
+    public HomeTiles() {
+      InitializeComponent();
     }
+  }
 }

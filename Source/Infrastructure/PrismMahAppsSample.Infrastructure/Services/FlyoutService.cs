@@ -6,40 +6,35 @@ using PrismMahAppsSample.Infrastructure.Interfaces;
 using System.Linq;
 using System.Windows.Input;
 
-namespace PrismMahAppsSample.Infrastructure.Services
-{
-    public class FlyoutService : IFlyoutService
-    {
-        IRegionManager _regionManager;
+namespace PrismMahAppsSample.Infrastructure.Services {
+  public class FlyoutService : IFlyoutService {
 
-        public ICommand ShowFlyoutCommand { get; private set; }
+    public ICommand ShowFlyoutCommand { get; private set; }
 
-        public FlyoutService(IRegionManager regionManager, IApplicationCommands applicationCommands)
-        {
-            _regionManager = regionManager;
+    public IRegionManager RegionManager { get; }
 
-            ShowFlyoutCommand = new DelegateCommand<string>(ShowFlyout, CanShowFlyout);
-            applicationCommands.ShowFlyoutCommand.RegisterCommand(ShowFlyoutCommand);
-        }
-
-        public void ShowFlyout(string flyoutName)
-        {
-            var region = _regionManager.Regions[RegionNames.FlyoutRegion];
-
-            if (region != null)
-            {
-                var flyout = region.Views.Where(v => v is IFlyoutView && ((IFlyoutView)v).FlyoutName.Equals(flyoutName)).FirstOrDefault() as Flyout;
-
-                if (flyout != null)
-                {
-                    flyout.IsOpen = !flyout.IsOpen;
-                }
-            }
-        }
-
-        public bool CanShowFlyout(string flyoutName)
-        {
-            return true;
-        }
+    public FlyoutService(
+      IRegionManager regionManager,
+      IApplicationCommands applicationCommands
+    ) {
+      RegionManager = regionManager;
+      ShowFlyoutCommand = new DelegateCommand<string>(ShowFlyout, CanShowFlyout);
+      applicationCommands.ShowFlyoutCommand.RegisterCommand(ShowFlyoutCommand);
     }
+
+    public void ShowFlyout(string flyoutName) {
+      var region = RegionManager.Regions[RegionNames.FlyoutRegion];
+
+      if (region != null) {
+        if (region.Views.Where(v => v is IFlyoutView view && view.FlyoutName.Equals(flyoutName)).FirstOrDefault() is Flyout flyout) {
+          flyout.IsOpen = !flyout.IsOpen;
+        }
+      }
+    }
+
+    public bool CanShowFlyout(string flyoutName) {
+      return true;
+    }
+
+  }
 }

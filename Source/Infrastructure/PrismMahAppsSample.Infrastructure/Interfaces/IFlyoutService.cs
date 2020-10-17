@@ -1,9 +1,8 @@
-﻿namespace PrismMahAppsSample.Infrastructure.Interfaces
-{
-    public interface IFlyoutService
-    {
-        void ShowFlyout(string flyoutName);
+﻿namespace PrismMahAppsSample.Infrastructure.Interfaces {
 
-        bool CanShowFlyout(string flyoutName);
-    }
+  public interface IFlyoutService {
+    void ShowFlyout(string flyoutName);
+
+    bool CanShowFlyout(string flyoutName);
+  }
 }
