@@ -1,9 +1,12 @@
 ﻿using Prism.Commands;
 using Prism.Events;
 using Prism.Regions;
+using Prism.Services.Dialogs;
 using PrismMahAppsSample.Infrastructure.Base;
 using PrismMahAppsSample.Infrastructure.Constants;
+using PrismMahAppsSample.Infrastructure.Events;
 using PrismMahAppsSample.Infrastructure.Interfaces;
+using PrismMahAppsSample.ModuleA.Views;
 using System.Windows.Input;
 using Unity;
 
@@ -14,11 +17,13 @@ namespace PrismMahAppsSample.ModuleA.ViewModels {
       IUnityContainer container,
       IRegionManager regionManager,
       IEventAggregator eventAggregator,
-      IMetroMessageDisplayService metroMessageDisplayService
+      IMetroMessageDisplayService metroMessageDisplayService,
+      IDialogService dialogService
     ) : base(container, regionManager, eventAggregator) {
       // Initialize commands
       IntializeCommands();
       MetroMessageDisplayService = metroMessageDisplayService;
+      DialogService = dialogService;
     }
 
     #region Commands
@@ -37,7 +42,18 @@ namespace PrismMahAppsSample.ModuleA.ViewModels {
     public ICommand ShowModuleAPopupCommand { get; private set; }
 
     public void ShowModuleAPopup() {
-      RegionManager.RequestNavigate(RegionNames.DialogPopupRegion, PopupNames.ModuleAPopup);
+      var p = new DialogParameters {
+        { "message", "This is a test message" }
+      };
+      DialogService.ShowDialog(nameof(ModuleAPopup), p, r => {
+        string message;
+        if (r.Result == ButtonResult.OK) {
+          message = r.Parameters.GetValue<string>("myParam");
+        } else {
+          message = "Okay button not clicked";
+        }
+        EventAggregator.GetEvent<StatusBarMessageUpdateEvent>().Publish(message);
+      });
     }
 
     /// <summary>
@@ -45,6 +61,7 @@ namespace PrismMahAppsSample.ModuleA.ViewModels {
     /// </summary>
     public ICommand ShowModuleAMessageCommand { get; private set; }
     public IMetroMessageDisplayService MetroMessageDisplayService { get; }
+    public IDialogService DialogService { get; }
 
     /// <summary>
     /// Show message

@@ -102,11 +102,6 @@
     <Compile Include="Base\PrismBaseModule.cs" />
     <Compile Include="Base\ViewModelBase.cs" />
     <Compile Include="Base\ViewModelDialogPopupBase.cs" />
-    <Compile Include="Behaviors\DialogActivationBehavior.cs" />
-    <Compile Include="Behaviors\IWindow.cs" />
-    <Compile Include="Behaviors\RegionPopupBehaviors.cs" />
-    <Compile Include="Behaviors\WindowDialogActivationBehavior.cs" />
-    <Compile Include="Behaviors\WindowWrapper.cs" />
     <Compile Include="Constants\FlyoutNames.cs" />
     <Compile Include="Constants\PopupNames.cs" />
     <Compile Include="Constants\RegionNames.cs" />

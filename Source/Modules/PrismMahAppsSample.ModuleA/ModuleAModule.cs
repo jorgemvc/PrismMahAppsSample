@@ -3,6 +3,7 @@ using Prism.Regions;
 using Prism.Unity;
 using PrismMahAppsSample.Infrastructure.Base;
 using PrismMahAppsSample.Infrastructure.Constants;
+using PrismMahAppsSample.ModuleA.ViewModels;
 using PrismMahAppsSample.ModuleA.Views;
 using Unity;
 
@@ -30,8 +31,8 @@ namespace PrismMahAppsSample.ModuleA {
     }
 
     public override void RegisterTypes(IContainerRegistry containerRegistry) {
-      base.RegisterTypes(containerRegistry);
-      containerRegistry.RegisterForNavigation<ModuleAPopup>();
+      // Dialog
+      containerRegistry.RegisterDialog<ModuleAPopup, ModuleAPopupViewModel>();
     }
 
   }

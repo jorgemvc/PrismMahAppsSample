@@ -12,6 +12,10 @@ namespace PrismMahAppsSample.Infrastructure.Base {
     /// <summary>
     /// The dialog icon
     /// </summary>
-    public abstract ImageSource Icon { get; }
+    private ImageSource icon;
+    public ImageSource Icon {
+      get { return icon; }
+      set { SetProperty(ref icon, value); }
+    }
   }
 }
