@@ -1,4 +1,5 @@
-﻿using MahApps.Metro.Controls.Dialogs;
+﻿using MahApps.Metro.Controls;
+using MahApps.Metro.Controls.Dialogs;
 using Prism.Ioc;
 using Prism.Modularity;
 using Prism.Unity;
@@ -20,6 +21,11 @@ namespace PrismMahAppsSample.Shell {
 
     protected override Window CreateShell() {
       return Container.Resolve<MainWindow>(WindowNames.MainWindowName);
+    }
+
+    protected override void InitializeShell(Window shell) {
+      base.InitializeShell(shell);
+      
     }
 
     protected override void RegisterTypes(IContainerRegistry containerRegistry) {

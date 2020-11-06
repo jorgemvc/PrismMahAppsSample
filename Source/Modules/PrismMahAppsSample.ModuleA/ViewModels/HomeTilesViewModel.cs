@@ -3,7 +3,6 @@ using Prism.Events;
 using Prism.Regions;
 using Prism.Services.Dialogs;
 using PrismMahAppsSample.Infrastructure.Base;
-using PrismMahAppsSample.Infrastructure.Constants;
 using PrismMahAppsSample.Infrastructure.Events;
 using PrismMahAppsSample.Infrastructure.Interfaces;
 using PrismMahAppsSample.ModuleA.Views;

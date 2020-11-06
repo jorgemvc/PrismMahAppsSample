@@ -13,7 +13,10 @@ namespace PrismMahAppsSample.Infrastructure.Services {
     /// CTOR
     /// </summary>
     /// <param name="container">Unity container.</param>
-    public MetroMessageDisplayService() {
+    public MetroMessageDisplayService(
+    // IUnityContainer container
+    ) {
+      // MainWindow = container.Resolve<MetroWindow>(WindowNames.MainWindowName);
     }
 
     #region Properties
